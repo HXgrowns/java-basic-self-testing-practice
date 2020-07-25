@@ -17,9 +17,10 @@ class StringTest {
         //  Please modify the following line to pass the test. It is really easy to pass
         //  the test. But you have to tell why.
         // <--start
-        final boolean areSame = true;
+        final boolean areSame = false;
         // --end-->
 
+        //‘==’只比较地址，而replace会返回一个新的字符串，所以两个字符串的地址不同
         assertEquals("The new string", modifiedString);
         assertEquals(areSame, originalString == modifiedString);
     }
@@ -34,9 +35,9 @@ class StringTest {
         //  Please modify the following line to pass the test. It is really easy to pass
         //  the test. But you have to tell why.
         // <--start
-        final boolean areSame = true;
+        final boolean areSame = false;
         // --end-->
-
+        //trim()返回一个新的字符串
         assertEquals("The string with tailing space.", modifiedString);
         assertEquals(areSame, originalString == modifiedString);
     }
@@ -52,9 +53,9 @@ class StringTest {
         //  Please modify the following line to pass the test. It is really easy to pass
         //  the test. But you have to tell why.
         // <--start
-        final boolean areSame = true;
+        final boolean areSame = false;
         // --end-->
-
+        //字符串的赋值都是创建一个新的字符串
         assertEquals("Part one. Part two.", originalString);
         assertEquals(areSame, originalString == copyOfOriginalString);
     }
@@ -67,7 +68,7 @@ class StringTest {
 
         // TODO: Extract words in the sentence.
         // <--Start
-        String[] words = null;
+        String[] words = sentence.split(" ");
         // --End-->
 
         assertArrayEquals(new String[] {"This", "is", "Mike"}, words);
