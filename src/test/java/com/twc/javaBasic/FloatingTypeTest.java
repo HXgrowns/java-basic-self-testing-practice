@@ -2,19 +2,22 @@ package com.twc.javaBasic;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Objects;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FloatingTypeTest {
     @Test
     void should_not_get_rounded_result_if_convert_floating_number_to_integer() {
         final float floatingPointNumber = 2.75f;
-        final int integer = (int)floatingPointNumber;
+        final int integer = (int) floatingPointNumber;
 
         // TODO:
         //  Please write down the answer directly.
         //
         // <!--start
-        final int expected = Integer.MAX_VALUE;
+        final int expected = 2;
         // --end-->
 
         assertEquals(expected, integer);
@@ -37,13 +40,13 @@ class FloatingTypeTest {
     @Test
     void should_not_round_number_when_convert_to_integer() {
         final float floatingPointNumber = 2.75f;
-        final int integer = (int)floatingPointNumber;
+        final int integer = (int) floatingPointNumber;
 
         // TODO:
         //  Please write down you answer directly.
         //
         // <!--start
-        final int expected = Integer.MAX_VALUE;
+        final int expected = 2;
         // --end-->
 
         assertEquals(expected, integer);
@@ -60,7 +63,7 @@ class FloatingTypeTest {
         //  The reference is here:
         //  https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#round-double-
         // <!--start
-        final long rounded = Long.MAX_VALUE;
+        final long rounded = Math.round(floatingPointNumber);
         // --end-->
 
         assertEquals(3L, rounded);
@@ -71,7 +74,7 @@ class FloatingTypeTest {
         // TODO:
         //  please implement the method to pass the test. It is better you call existing
         //  API rather than implemented yourself.
-        throw new RuntimeException("Not implemented");
+        return Double.isNaN(realNumber);
     }
 
     @SuppressWarnings("unused")
@@ -79,6 +82,6 @@ class FloatingTypeTest {
         // TODO:
         //  please implement the method to pass the test. It is better you call existing
         //  API rather than implemented yourself.
-        throw new RuntimeException("Not implemented");
+        return Double.isInfinite(realNumber);
     }
 }
