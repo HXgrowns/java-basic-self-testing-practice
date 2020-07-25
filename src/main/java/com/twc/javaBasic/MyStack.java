@@ -21,10 +21,10 @@ public class MyStack {
         if (count == capacity) {
             ensureCapacity();
         }
-
         // TODO: Please push the value into the storage here.
         // <--start
-
+        storage[count] = value;
+        count++;
         // --end-->
     }
 
@@ -37,7 +37,10 @@ public class MyStack {
         //  IMPORTANT: You SHOULD NOT USE COLLECTIONS (such as List<T>) OTHER THAN ARRAY.
         //
         // <--start
-
+        int[] newStorage = new int[newCapacity];
+        if (capacity >= 0) System.arraycopy(storage, 0, newStorage, 0, capacity);
+        capacity = newCapacity;
+        storage = newStorage;
         // --end-->
     }
 
@@ -57,9 +60,11 @@ public class MyStack {
         //  Please pop one element from the array. You should update the `count` field
         //  as well.
         // <--start
-
+        if (count <= 0) {
+            throw new UnsupportedOperationException("Stack is empty.");
+        }
+        count--;
+        return storage[count];
         // --end-->
-
-        throw new UnsupportedOperationException("Stack is empty.");
     }
 }
